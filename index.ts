@@ -1,3 +1,15 @@
+import * as fs from 'fs'
+
+const convertMarkdownFileToStringArray = () => {
+    fs.readFile('./test-file.md', 'utf8', (err: any, data: any) => {
+        if (err) {
+          console.error(err)
+          return;
+        }
+        console.log(data)
+    })
+}
+
 export const correctSpeechMarks = (testString: string) => {
     let arrayFromString = [...testString]
 
@@ -28,3 +40,5 @@ export const checkForPunctuation = (string: string) => {
     const punctuation = ["!", "?", ",", ".", "—"]
     return punctuation.includes(string)
 }
+
+convertMarkdownFileToStringArray()

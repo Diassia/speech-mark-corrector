@@ -2,9 +2,10 @@
   "name": "speech-mark-corrector",
   "version": "1.0.0",
   "description": "A script to correct opening and closing speech marks",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "test": "npx jest"
+    "test": "npx jest",
+    "dev": "ts-node index.ts"
   },
   "repository": {
     "type": "git",
