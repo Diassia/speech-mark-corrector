@@ -6,8 +6,10 @@ const convertMarkdownFileToStringArray = () => {
           console.error(err)
           return;
         }
-        console.log(data)
+        let newArray = data.split("\n")
+        return newArray
     })
+    return []
 }
 
 export const correctSpeechMarks = (testString: string) => {
