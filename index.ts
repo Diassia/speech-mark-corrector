@@ -5,7 +5,6 @@ const convertMarkdownFileToStringArray = () => {
     try {
         const data = fs.readFileSync('./test-file.md', 'utf8');
         newArray = [...data.split("\n")]
-        console.log(newArray)
     } catch (err) {
         console.error(err);
     }
@@ -55,11 +54,20 @@ const correctFile = (array: string[]) => {
     return newFileData
 }
 
+const writeDataToMarkdownFile = (data: string) => {
+    try {
+        fs.writeFileSync('./correctedFiles/newfile2.md', data);
+        console.log('File successfully written')
+      } catch (err) {
+        console.error(err);
+      }
+}
+
 const main = () => {
     let dataArray = convertMarkdownFileToStringArray()
     let correctedDataArray = correctFile(dataArray)
     let correctedData = correctedDataArray.join("\n")
-    console.log(correctedData)
+    writeDataToMarkdownFile(correctedData)
 }
 
 main()
