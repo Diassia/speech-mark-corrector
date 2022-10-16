@@ -24,7 +24,7 @@ export const correctSpeechMarks = (testString: string) => {
     return newString
 }
 
-const checkForPunctuation = (string: string) => {
+export const checkForPunctuation = (string: string) => {
     const punctuation = ["!", "?", ",", ".", "—"]
     return punctuation.includes(string)
 }

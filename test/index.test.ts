@@ -1,4 +1,4 @@
-import { correctSpeechMarks } from '../index'
+import { checkForPunctuation, correctSpeechMarks } from '../index'
 
 describe('testing speech mark corrector', () => {
   test('when the opening speech mark at the beginning of the line', () => {
@@ -11,3 +11,12 @@ describe('testing speech mark corrector', () => {
     expect(correctSpeechMarks("'The Jones' dog doesn't like our garden?'")).toBe("‘The Jones' dog doesn't like our garden?’");
   });
 });
+
+describe('testing checkForPunctuation', () => {
+  test('when the inputted string is "?", it should return true', () => {
+    expect(checkForPunctuation("?")).toBe(true)
+  })
+  test('when the inputted string is "a", it should return false', () => {
+    expect(checkForPunctuation("a")).toBe(false)
+  })
+})
