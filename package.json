@@ -1,0 +1,19 @@
+{
+  "name": "speech-mark-corrector",
+  "version": "1.0.0",
+  "description": "A script to correct opening and closing speech marks",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diassia/speech-mark-corrector.git"
+  },
+  "author": "Kayleigh Shaw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Diassia/speech-mark-corrector/issues"
+  },
+  "homepage": "https://github.com/Diassia/speech-mark-corrector#readme"
+}
