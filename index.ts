@@ -1,18 +1,23 @@
 import * as fs from 'fs'
 
 const convertMarkdownFileToStringArray = () => {
-    fs.readFile('./test-file.md', 'utf8', (err: any, data: any) => {
-        if (err) {
-          console.error(err)
-          return;
-        }
-        let newArray = data.split("\n")
-        return newArray
-    })
-    return []
+    let newArray: string[] = []
+    try {
+        const data = fs.readFileSync('./test-file.md', 'utf8');
+        newArray = [...data.split("\n")]
+        console.log(newArray)
+    } catch (err) {
+        console.error(err);
+    }
+    return newArray
 }
 
-export const correctSpeechMarks = (testString: string) => {
+export const checkForPunctuation = (string: string) => {
+    const punctuation = ["!", "?", ",", ".", "—"]
+    return punctuation.includes(string)
+}
+
+export const correctLine = (testString: string) => {
     let arrayFromString = [...testString]
 
     for (let i = 0; i < arrayFromString.length; i++) {
@@ -38,9 +43,23 @@ export const correctSpeechMarks = (testString: string) => {
     return newString
 }
 
-export const checkForPunctuation = (string: string) => {
-    const punctuation = ["!", "?", ",", ".", "—"]
-    return punctuation.includes(string)
+const correctFile = (array: string[]) => {
+    let stringArray = array
+    let newFileData: string[] = []
+
+    for (let i = 0; i < stringArray.length; i++) {
+        let correctedString = correctLine(stringArray[i])
+        newFileData.push(correctedString)
+    }
+
+    return newFileData
 }
 
-convertMarkdownFileToStringArray()
+const main = () => {
+    let dataArray = convertMarkdownFileToStringArray()
+    let correctedDataArray = correctFile(dataArray)
+    let correctedData = correctedDataArray.join("\n")
+    console.log(correctedData)
+}
+
+main()
