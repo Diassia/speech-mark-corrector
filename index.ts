@@ -1,9 +1,4 @@
-
-let testString: string = "'This is to test opening and closing dialogue,' he said."
-let testString2: string = "She nodded. 'You're right! We should use the right opening and closing!'"
-let testString3: string = "'The Jones' dog doesn't like our garden?'"
-
-const correctSpeechMarks = (testString: string) => {
+export const correctSpeechMarks = (testString: string) => {
     let arrayFromString = [...testString]
 
     for (let i = 0; i < arrayFromString.length; i++) {
@@ -33,7 +28,3 @@ const checkForPunctuation = (string: string) => {
     const punctuation = ["!", "?", ",", ".", "—"]
     return punctuation.includes(string)
 }
-
-console.log(correctSpeechMarks(testString))
-console.log(correctSpeechMarks(testString2))
-console.log(correctSpeechMarks(testString3))

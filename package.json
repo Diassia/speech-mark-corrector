@@ -4,7 +4,7 @@
   "description": "A script to correct opening and closing speech marks",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npx jest"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/Diassia/speech-mark-corrector/issues"
   },
-  "homepage": "https://github.com/Diassia/speech-mark-corrector#readme"
+  "homepage": "https://github.com/Diassia/speech-mark-corrector#readme",
+  "devDependencies": {
+    "@types/jest": "^29.1.2",
+    "jest": "^29.2.0",
+    "ts-jest": "^29.0.3"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.1"
+  }
 }
