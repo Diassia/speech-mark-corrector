@@ -1,9 +1,18 @@
 import * as fs from 'fs'
+var path = require('path')
+
+const getFilePathName = () => {
+    const args = process.argv.slice(2)
+    let filePath = args[0]
+    let filename = path.parse(filePath).base
+    console.log(filename)
+    return [filePath, filename]
+}
 
 const convertMarkdownFileToStringArray = () => {
+    let filePath = getFilePathName()[0]
     let newArray: string[] = []
     try {
-        let filePath = "./test-file.md"
         const data = fs.readFileSync(filePath, 'utf8');
         newArray = [...data.split("\n")]
     } catch (err) {
@@ -56,8 +65,9 @@ const correctFile = (array: string[]) => {
 }
 
 const writeDataToMarkdownFile = (data: string) => {
+    let filePath = getFilePathName()[1]
     try {
-        fs.writeFileSync('./correctedFiles/newfile3.md', data);
+        fs.writeFileSync('./correctedFiles/' + filePath, data);
         console.log('File successfully written')
       } catch (err) {
         console.error(err);
