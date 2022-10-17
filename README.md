@@ -22,6 +22,6 @@ The file will be saved with the same name as the original file. If a file with t
 
 Newly corrected file will be saved in `correctedFiles` by default and will not overwrite the original file.
 
-**In place**: `npm run dev -- "./your-file-path.md" [-in-place]`
+**In place**: `npm run dev -- "./your-file-path.md" -in-place`
 
 The optional flag `-in-place` will save the new file to your original path with the same file name, therefore overwriting the original file.
