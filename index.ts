@@ -2,10 +2,11 @@ import * as fs from 'fs'
 var path = require('path')
 
 const getFilePathName = () => {
-    const args = process.argv.slice(2)
-    let filePath = args[0]
+    const args: string[] = process.argv.slice(2)
+    let filePath: string = args[0]
     let fileName = path.parse(filePath).base
-    return [filePath, fileName]
+    let inPlace: boolean = args.includes('-in-place')
+    return [filePath, fileName, inPlace]
 }
 
 const convertMarkdownFileToStringArray = () => {
@@ -67,12 +68,13 @@ const writeDataToMarkdownFile = (data: string) => {
     const filePathName = getFilePathName()
     let filePath = filePathName[0]
     let fileName = filePathName[1]
+    let inPlace = filePathName[2]
     try {
-        fs.writeFileSync(filePath, data);
-        console.log(`${fileName} successfully written`)
-      } catch (err) {
+        fs.writeFileSync(inPlace ? filePath : `./correctedFiles/${fileName}`, data);
+        console.log(`${fileName} successfully written to ${inPlace ? filePath : `./correctedFiles/${fileName}`}`)
+        } catch (err) {
         console.error(err);
-      }
+    }
 }
 
 const main = () => {
