@@ -68,7 +68,7 @@ const writeDataToMarkdownFile = (data: string) => {
     let filePath = filePathName[0]
     let fileName = filePathName[1]
     try {
-        fs.writeFileSync(`./correctedFiles/${filePath}`, data);
+        fs.writeFileSync(filePath, data);
         console.log(`${fileName} successfully written`)
       } catch (err) {
         console.error(err);
