@@ -3,7 +3,8 @@ import * as fs from 'fs'
 const convertMarkdownFileToStringArray = () => {
     let newArray: string[] = []
     try {
-        const data = fs.readFileSync('./test-file.md', 'utf8');
+        let filePath = "./test-file.md"
+        const data = fs.readFileSync(filePath, 'utf8');
         newArray = [...data.split("\n")]
     } catch (err) {
         console.error(err);
@@ -12,7 +13,7 @@ const convertMarkdownFileToStringArray = () => {
 }
 
 export const checkForPunctuation = (string: string) => {
-    const punctuation = ["!", "?", ",", ".", "—"]
+    const punctuation = ["!", "?", ",", ".", "—", "*"]
     return punctuation.includes(string)
 }
 
@@ -56,7 +57,7 @@ const correctFile = (array: string[]) => {
 
 const writeDataToMarkdownFile = (data: string) => {
     try {
-        fs.writeFileSync('./correctedFiles/newfile2.md', data);
+        fs.writeFileSync('./correctedFiles/newfile3.md', data);
         console.log('File successfully written')
       } catch (err) {
         console.error(err);
