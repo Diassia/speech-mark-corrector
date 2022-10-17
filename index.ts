@@ -5,7 +5,6 @@ const getFilePathName = () => {
     const args = process.argv.slice(2)
     let filePath = args[0]
     let filename = path.parse(filePath).base
-    console.log(filename)
     return [filePath, filename]
 }
 
@@ -65,10 +64,12 @@ const correctFile = (array: string[]) => {
 }
 
 const writeDataToMarkdownFile = (data: string) => {
-    let filePath = getFilePathName()[1]
+    const filePathName = getFilePathName()
+    let filePath = filePathName[0]
+    let fileName = filePathName[1]
     try {
-        fs.writeFileSync('./correctedFiles/' + filePath, data);
-        console.log('File successfully written')
+        fs.writeFileSync(`./correctedFiles/${filePath}`, data);
+        console.log(`${fileName} successfully written`)
       } catch (err) {
         console.error(err);
       }
