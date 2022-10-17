@@ -4,8 +4,8 @@ var path = require('path')
 const getFilePathName = () => {
     const args = process.argv.slice(2)
     let filePath = args[0]
-    let filename = path.parse(filePath).base
-    return [filePath, filename]
+    let fileName = path.parse(filePath).base
+    return [filePath, fileName]
 }
 
 const convertMarkdownFileToStringArray = () => {
