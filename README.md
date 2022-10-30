@@ -7,7 +7,7 @@ Purely because the generic vertical quotation marks were driving me *crazy*! Thi
 3. Convert all single quotation marks for dialogue to the correct opening and closing
 4. By default, the file will be saved into the `correctedFiles` directory. If the `-in-place` flag is used, this will rewrite the corrected data to the original file in the original destination
 
-Once the file have been completed. A sentence such as this:
+Once the file has been corrected. A sentence such as this:
 >'This is to test opening and closing dialogue,' he said.
 >
 will be converted to:
